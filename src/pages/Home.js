@@ -135,7 +135,12 @@ const Home = () => {
       </Modal>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} className="d-flex-row">
         {Posts?.map((post) => (
-          <Col className="gutter-row" span={8} key={post.id}>
+          <Col
+            className="gutter-row"
+            span={8}
+            key={post.id}
+            style={{ maxWidth: "100% !important" }}
+          >
             <PostCard post={post} />
           </Col>
         ))}
