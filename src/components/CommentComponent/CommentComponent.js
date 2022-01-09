@@ -4,7 +4,11 @@ import moment from "moment";
 const CommentComponent = ({ username, createdAt, body }) => {
   return (
     <Comment
-      author={<a href="#">{username}</a>}
+      author={
+        <span style={{ cursor: "pointer", color: "rgb(24, 144, 255)" }}>
+          {username}
+        </span>
+      }
       avatar={
         <Avatar src="https://joeschmoe.io/api/v1/random" alt={username} />
       }
