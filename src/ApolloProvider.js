@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 
 const httpLink = new HttpLink({
-  uri: "https://blooming-basin-18935.herokuapp.com",
+  uri: "https://blooming-basin-18935.herokuapp.com/",
 });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
