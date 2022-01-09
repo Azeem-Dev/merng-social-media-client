@@ -148,7 +148,10 @@ const Home = () => {
               className="gutter-row"
               span={8}
               key={post.id}
-              style={{ width: "300px !important" }}
+              style={{
+                width: "300px !important",
+                maxWidth: "300px !important",
+              }}
             >
               <PostCard post={post} />
             </Col>
