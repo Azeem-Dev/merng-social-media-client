@@ -5,7 +5,14 @@ const Loader = () => {
   const antIcon = <StarTwoTone style={{ fontSize: 100 }} spin />;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Spin indicator={antIcon} />
       <p
         style={{

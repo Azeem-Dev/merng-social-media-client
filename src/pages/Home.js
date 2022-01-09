@@ -9,8 +9,10 @@ import "emoji-mart/css/emoji-mart.css";
 import PostCard from "../components/PostCard/PostCard";
 import { getUserDataFromMemory } from "../utils/getUserData";
 import { OpenErrorNotification } from "../components/Notification/Notification";
+import Loader from "../components/Loader/Loader";
 const Home = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [PostBody, setPostBody] = useState("");
   const [AddPost, response] = useMutation(ADD_POST, {
     // Then re-run
@@ -63,8 +65,13 @@ const Home = () => {
     }
   }, []);
   useEffect(() => {
+    if (loading) {
+      setIsLoading(true);
+      return;
+    }
+    setIsLoading(false);
     Posts = data?.getPosts;
-  }, [data]);
+  }, [data, loading]);
 
   if (!loading) {
     Posts = data?.getPosts;
@@ -133,18 +140,23 @@ const Home = () => {
           </div>
         )}
       </Modal>
-      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} className="d-flex-row">
-        {Posts?.map((post) => (
-          <Col
-            className="gutter-row"
-            span={8}
-            key={post.id}
-            style={{ maxWidth: "100% !important" }}
-          >
-            <PostCard post={post} />
-          </Col>
-        ))}
-      </Row>
+
+      {!isLoading ? (
+        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} className="d-flex-row">
+          {Posts?.map((post) => (
+            <Col
+              className="gutter-row"
+              span={8}
+              key={post.id}
+              style={{ width: "300px !important" }}
+            >
+              <PostCard post={post} />
+            </Col>
+          ))}
+        </Row>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };
