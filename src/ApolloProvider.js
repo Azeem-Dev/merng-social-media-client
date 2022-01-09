@@ -9,7 +9,9 @@ import {
   ApolloProvider,
 } from "@apollo/client";
 
-const httpLink = new HttpLink({ uri: "http://localhost:5000" });
+const httpLink = new HttpLink({
+  uri: "https://blooming-basin-18935.herokuapp.com",
+});
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   // add the authorization to the headers
