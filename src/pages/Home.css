@@ -4,4 +4,7 @@
     align-items: center;
     justify-content: center;
   }
+  .ant-col-8{
+    max-width:100% !important;
+  }
 }

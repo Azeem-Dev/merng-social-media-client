@@ -18,9 +18,9 @@ const LoginForm = () => {
   const [isError, setisError] = useState(false);
   const [errors, setErrors] = useState({});
   useEffect(() => {
-    if (response.called == true && response.loading == false) {
+    if (response.called === true && response.loading === false) {
       setLoading(false);
-      if (response.error != undefined) {
+      if (response.error !== undefined) {
         setisError(true);
         setErrors(response.error.graphQLErrors[0].extensions.errors);
         return;
