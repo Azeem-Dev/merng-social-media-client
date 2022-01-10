@@ -12,7 +12,7 @@ import { OpenErrorNotification } from "../components/Notification/Notification";
 import Loader from "../components/Loader/Loader";
 const Home = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [PostBody, setPostBody] = useState("");
   const [AddPost, response] = useMutation(ADD_POST, {
     // Then re-run
