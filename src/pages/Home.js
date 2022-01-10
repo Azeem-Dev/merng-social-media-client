@@ -59,6 +59,7 @@ const Home = () => {
   const { loading, data } = useQuery(FETCH_POSTS_QUERY);
 
   useEffect(() => {
+    setIsLoading(true);
     let userInfo = getUserDataFromMemory();
     if (userInfo != {} || userInfo != undefined) {
       setUser(userInfo);
