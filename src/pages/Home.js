@@ -143,21 +143,20 @@ const Home = () => {
       </Modal>
 
       {!isLoading ? (
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} className="d-flex-row">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
           {Posts?.map((post) => (
-            <Col
-              className="gutter-row"
-              span={8}
-              key={post.id}
-              style={{
-                width: "300px !important",
-                maxWidth: "300px !important",
-              }}
-            >
+            <div style={{ margin: "0 20px 0 20px" }} key={post.id}>
               <PostCard post={post} />
-            </Col>
+            </div>
           ))}
-        </Row>
+        </div>
       ) : (
         <Loader />
       )}
